@@ -1,0 +1,69 @@
+query FindAllCustomers {
+   findAllCustomers {
+       id
+       userName
+       fullName
+       email
+       enabled
+       gender
+       address
+       payments {
+           id
+           currency
+           created
+           finalized
+       }
+   }
+}
+
+query FindCustomer {
+   findCustomer(id: 1) {
+       id
+       userName
+       fullName
+       email
+       enabled
+       gender
+       address
+	   payments {
+           id
+           currency
+           created
+           finalized
+      }
+   }
+}
+
+mutation CreateCustomer {
+   createCustomer(userName: "newName", fullName: "UserFullName", email: "email3", gender: "", address: "") {
+       id
+       userName
+       fullName
+       email
+   }
+}
+
+mutation UpdateCustomer {
+   updateCustomer(id: 1, userName: "newName", fullName: "UserFullName", email: "email3", gender: "", address: "") {
+       id
+       userName
+       fullName
+       email
+   }
+}
+
+mutation AddPayment {
+   addPayment(id: 1, currency: 33.31) {
+       id
+       userName
+       fullName
+   }
+}
+
+mutation DeleteCustomer {
+  deleteCustomer(id: 1){
+    id
+    userName
+  }
+}
+

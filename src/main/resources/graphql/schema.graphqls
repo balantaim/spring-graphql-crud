@@ -1,0 +1,32 @@
+# transactional methods
+type Mutation {
+    createCustomer(userName: String, fullName: String, email: String, gender: String, address: String): Customer
+    addPayment(id: Int!, currency: Float!): Customer
+    updateCustomer(id: Int!, userName: String, fullName: String, email: String, gender: String, address: String): Customer
+    deleteCustomer(id: ID!): Customer
+}
+
+# get methods
+type Query {
+    findAllCustomers: [Customer]
+    findCustomer(id: ID!): Customer
+}
+
+# objects
+type Customer {
+    id: ID!
+    userName: String
+    fullName: String
+    email: String
+    enabled: Boolean
+    gender: String
+    address: String
+    payments: [Payment]
+}
+
+type Payment {
+    id: ID!
+    currency: Float
+    created: String
+    finalized: String
+}
